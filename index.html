@@ -1,0 +1,233 @@
+<html>
+    <head>
+        <title>webpage</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+             <div class="nav-bar">
+               <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmci
+               IHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxl
+               PgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIj
+               NjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4y
+               Ii8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPG
+               VsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
+                alt="img" height="20">
+                    <a href="">React</a>
+                   <a href="">Docs</a>
+                  <a href="">tutorial</a>
+                   <a href="">Blog</a>
+                   <a href="">Community</a>
+                 <input type="text" placeholder="search">
+                 <a href="">16.13.1</a>
+                 <a href="">Languages</a>
+                 <a href="">Github</a>
+                 </div>
+         </nav>
+        </header>
+        <main>
+            <div class="file">
+                <div>
+            <h1>React v16.13.0</h1>
+            <p>February 26, 2020 by <span class="blue">Sunil Pai</span></p>
+            <br>
+            <p>Today we are releasing React 16.13.0. It contains bugfixes and new deprecation <br>
+                warnings to help prepare for a future major release.
+            </p>
+        </div>
+       <div>
+              <h2>New Warnings</h2>
+              <h2>Warnings for some updates during render</h2>
+              <p>A React component should not cause side effects in other components during rendering.</p>
+              <p>t is supported to call<span class="beach"> setState</span> during render, but <span class="blue">only for the same component</span>. If you call
+                <br> <span class="beach">setState</span> during a render on a different component, you will now see a warning:</p>
+                <p>
+                <code>Warning: Cannot update a component from inside the function body of a different component.</code>
+          </p>
+                <h3>Warnings for conflicting style rules</h3>
+            <p>When dynamically applying a<span class="beach"> style</span> that contains longhand and shorthand versions of CSS<br> 
+                properties, particular combinations of updates can cause inconsistent styling. For example:</p>
+              <p>You might expect this <span class="beach"><div></span> to always have a red background, no matter the value of <span class="beach">toggle</span>.<br>
+                 However, on alternating the value of <span class="beach">toggle</span> between true</span> and false</span>, the background color<br>
+                  start as <span class="beach">red</span>, then alternates between <span class="beach">transparent</span> and <span class="beach">blue</span>, <span class="blue">as you can see in this demo.</span>
+              </p>
+              <p><b>React now detects conflicting style rules and logs a warning</b>. To fix the issue, don’t mix <br>
+                shorthand and longhand versions of the same CSS property in the <span class="beach">style</span> prop.
+              </p>
+            <h2>Deprecating React.createFactory</h2>
+            <p>
+                <span class="blue">React.createFactory</span> is a legacy helper for creating React elements. This release adds a<br>
+                deprecation warning to the method. It will be removed in a future major version.</p>
+
+                <p>Replace usages of <span class="blue">React.createFactory</span> with regular JSX. Alternately, you can copy and paste this one-line helper or publish it as a library:
+            </p>
+            <p>
+            <code>let createFactory = type => React.createElement.bind(null, type);</code>
+            </p>
+            <p>It does exactly the same thing</p>
+            <h3>Deprecating ReactDOM.unstable_createPortal in favor of ReactDOM.createPortal</h3>
+            <p>When React 16 was released,<span class="beach"> createPortal</span> became an officially supported API.</p>
+            <p>However, we kept <span class="beach">unstable_createPortal</span> as a supported alias to keep the few libraries that<br>
+                 adopted it working. We are now deprecating the unstable alias. Use <span class="beach">createPortal</span> directly<br> 
+                 instead of <span class="beach">unstable_createPortal</span>. It has exactly the same signature.
+
+            </p>
+        </div>
+        <div>
+            <h2>Other Improvements </h2>
+           
+            <h3>Component stacks in hydration warnings</h3>
+            <p>React adds component stacks to its development warnings, enabling developers to isolate <br>
+             bugs and debug their programs. This release adds component stacks to a number of <br>
+             development warnings that didn’t previously have them. As an example, consider this<br>
+              hydration warning from the previous versions:
+
+            </p>
+            <img src="https://reactjs.org/static/20bd06e254e7ad32aa007a59a41d1e65/1e088/hydration-warning-before.png" alt="waring1" width="1200">
+            <p>While it’s pointing out an error with the code, it’s not clear where the error exists, and what to<br>
+                 do next. This release adds a component stack to this warning, which makes it look like this:
+           </p>
+           <img src="https://reactjs.org/static/abf3b580867e79d5f377330842bb6522/1e088/hydration-warning-after.png" alt="waring2" width="1200">
+            <p>This makes it clear where the problem is, and lets you locate and fix the bug faster.
+
+            </p>
+        </div>
+            <div>
+                <h3>Notable bugfixes</h3>
+                <p>This release contains a few other notable improvements:</p>
+                <ul>
+                    <li>In Strict Development Mode, React calls lifecycle methods twice to flush out any possible unwanted side<br>
+                         effects. This release adds that behaviour to <span class="beach">shouldComponentUpdate</span>. This shouldn’t affect most code, unless<br> 
+                        you have side effects in <span class="beach">shouldComponentUpdate</span>. To fix this, move the code with side effects into <br>
+                        <span class="beach">componentDidUpdate</span>.</li>
+                    <li>In Strict Development Mode, the warnings for usage of the legacy context API didn’t include the<br>
+                         stack for the component that triggered the warning. This release adds the missing stack to the warning.
+                    </li>
+                    <li><span class="beach">onMouseEnter</span> now doesn’t trigger on disabled <span class="beach">button</span> elements.</li>
+                    <li>ReactDOM was missing a version export since we published v16. This release adds it back. We don’t <br>
+                        recommend using it in your application logic, but it’s useful when debugging issues with mismatching / <br>
+                        multiple versions of ReactDOM on the same page.</li>
+                        <p>We’re thankful to all the contributors who helped surface and fix these and other issues. You <br>can find the full changelog below.</p>
+                </ul>
+
+                <p>We’re thankful to all the contributors who helped surface and fix these and other issues. You<br>
+                   can find the full changelog <span class="blue">below</span>.
+
+                </p>
+            </div>
+            <div >
+                <h2>Installation</h2>
+                <h3>React</h3>
+                <p>React v16.13.0 is available on the npm registry.</p>
+                <p>To install React 16 with Yarn, run:</p>
+               <p>
+                <code>yarn add react@^16.13.0 react-dom@^16.13.0</code>
+            </p>
+                <p>To install React 16 with npm, run:</p>
+                <p>
+                <code>npm install --save react@^16.13.0 react-dom@^16.13.0</code></p>
+               
+                <p>We also provide UMD builds of React via a CDN:</p>
+              
+               <p><script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script><br>
+                 
+                    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+                <p>Refer to the documentation for<span class="blue"> detailed installation instructions</span>.</p>
+               </div>
+           <div>
+               <h2>Changelog</h2>
+               <h3>React</h3>
+               <ul>
+                   <li>Warn when a string ref is used in a manner that’s not amenable to a future codemod <span class="blue">(@lunaruan in #17864)</span></li>
+                   <li>Deprecate <span class="beach"> React.createFactory()</span> <span class="blue">(@trueadm in #17878)</span>
+                </li>
+               </ul>
+               <h3>React DOM</h3>
+               <ul>
+                   <li>Warn when changes in <span class="beach">style</span> may cause an unexpected collision <span class="blue">(@sophiebits in #14181, #18002)</span></li>
+                   <li>Warn when a function component is updated during another component’s render phase <span class="blue">(@acdlite in #17099)</span></li>
+                   <li>Deprecate <span class="beach">unstable_createPortal</span> <span class="blue">(@trueadm in #17880)</li>
+                   <li>Fix  <span class="beach">onMouseEnter</span> being fired on disabled buttons <span class="blue">(@AlfredoGJ in #17675)</span></li>
+                   <li>Call <span class="beach">shouldComponentUpdate</span> twice when developing in  <span class="beach">StrictMode</span> <span class="blue">(@bvaughn in #17942)</span>
+                    </li>
+                   <li>Add version property to ReactDOM <span class="blue">(@ealush in #15780)</span></li>
+                   <li>Don’t call  <span class="beach">toString()</span> of  <span class="beach">dangerouslySetInnerHTML</span> <span class="blue">(@sebmarkbage in #17773)</span></li>
+                   <li>Show component stacks in more warnings<span class="blue"> (@gaearon in #17922, #17586)</span>
+                </li>
+               </ul>
+           </div>
+           <div>
+               <h3>Concurrent Mode (Experimental)</h3>
+               <ul>
+                   <li>Warn for problematic usages of <span class="blue"></span>ReactDOM.createRoot() <span class="blue">(@trueadm in #17937)</span></li>
+                   <li>Remove <span class="beach">ReactDOM.createRoot()</span>b callback params and added warnings on usage<span class="blue"> (@bvaughn in #17916)</span></li>
+                   <li>Don’t group Idle/Offscreen work with other work<span class="blue">(@sebmarkbage in #17456)</span></li>
+                   <li>Adjust <span class="beach">SuspenseList </span>  CPU bound heuristic <span class="blue">(@sebmarkbage in #17455)</span></li>
+                   <li>Add missing event plugin priorities <span class="blue">(@trueadm in #17914)</span></li>
+                   <li>Fix <span class="beach"> isPending</span> only being true when transitioning from inside an input event <span class="blue">(@acdlite in #17382)</span></li>
+                   <li>Fix <span class="beach"> React.memo </span> components dropping updates when interrupted by a higher priority update<span class="blue">(@acdlite in #18091)</span></li>
+                   <li>Don’t warn when suspending at the wrong priority<span class="blue"> (@gaearon in #17971)</span></li>
+                   <li>Fix a bug with rebasing updates <span class="blue">(@acdlite and @sebmarkbage in #17560, #17510, #17483, #17480)</span></li>
+               </ul>
+            </div>
+        </div>
+   
+              <footer>
+                  <div class="footer-main">
+                  <div class="footer-top">
+                      <div class="footer-link-group">
+                          <div>
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVQAAABaCAMAAADQMV5DAAAC3FBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+GTFYVAAAA9HRSTlMAG7O/KQR48v/+hA5W2+piObG8RBSU/fehIG7stSWl9nkIStbYU0XN4FUvrHoDcOi3OAuLmheOmRVm4rtBNbDucsnfXlDUJpuGB3vtM3+mHBKMEF3FSDzmaMLpWN7PRh2XkAaAo3X4riuiBctS3WAxtvFx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" alt="facebook open source">
+                  <p>Copyright © 2020 Facebook Inc.</p>
+                </div>
+                      <div>
+                      <h4>DOCS</h4>
+                      <ul>
+                          <li><a href="">Installation</a></li>
+                          <li><a href="">Main Concepts</a></li>
+                          <li><a href="">Advanced Guides</a></li>
+                          <li><a href="">API Reference</a></li>
+                          <li><a href="">Hooks</a></li>
+                          <li><a href="">Testing</a></li>
+                          <li><a href="">Concurrent Mode (Experimental)</a></li>
+                          <li><a href="">Contributing</a></li>
+                          <li><a href="">FAQ</a></li>                        
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4>COMMUNITY</h4>
+                      <ul>
+                          <li> <a href=""> Code for Contect</a></li>
+                          <li> <a href="">Community Resources</a> </li>
+                          
+                      </ul>
+                    </div>
+                 <div>
+                      <h4>CHANNELS</h4>
+                      <ul>
+                        <li><a href=""> GitHub</a></li>
+                        <li> <a href="">Stack Overflow</a> </li>
+                        <li> <a href=""> Discussion Forums</a></li>
+                        <li><a href="">Facebook</a></li>
+                        <li> <a href="">Twitter</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                       <h4>MORE</h4>
+                        <ul>
+                            <li><a href=""> Tutorial</a></li>
+                            <li><a href="">Blog</a></li>
+                            <li><a href=""> Acknowledgements</a></li>
+                            <li><a href="">React Native</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+              </footer>
+        
+        </main>
+    </body>
+</html>
